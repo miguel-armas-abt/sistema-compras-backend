@@ -2,7 +2,9 @@ package com.microservices.compras.client;
 
 import com.microservices.compras.model.Customer;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerHystrixFallbackFactory implements CustomerClient{
 
     // este es el plan de accion B
