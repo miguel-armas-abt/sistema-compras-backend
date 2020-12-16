@@ -1,6 +1,7 @@
 package com.microservices.compras.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.microservices.compras.model.Customer;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -49,5 +50,13 @@ public class Invoice {
     public void prePersist() {
         this.createAt = new Date();
     }
+
+
+
+
+
+    // clientes feign
+    @Transient
+    private Customer customer;
 
 }

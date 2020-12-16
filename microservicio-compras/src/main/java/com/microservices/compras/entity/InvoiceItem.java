@@ -1,5 +1,6 @@
 package com.microservices.compras.entity;
 
+import com.microservices.compras.model.Product;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -36,4 +37,9 @@ public class InvoiceItem {
         this.quantity=(double) 0;
         this.price=(double) 0;
     }
+
+
+    // clientes feign
+    @Transient
+    private Product product;
 }
