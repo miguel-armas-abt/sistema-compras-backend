@@ -7,11 +7,10 @@ spring:
       server:
         git:
           uri: https://github.com/miguel-armas-abt/sistema-compras-backend.git
-          searchPath: config-data
+          searchPaths: config-data
           username: ${GIT_USER}
-          password: ${GIT_PASSOWORD}
+          password: ${GIT_PASSWORD}
   security:
     user:
       name: root
       password: s3cr3t
-      
