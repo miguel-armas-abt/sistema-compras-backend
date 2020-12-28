@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor    // inyeccion por constructor
 public class ProductServiceImpl implements  ProductService{
 
-    //@Autowired  quito el autowired y lo hago final para que su inyeccion  sea por constructor (@RequiredArgsConstructor)
+    //@Autowired  // quito el autowired y lo hago final para que se inyecte por constructor (@RequiredArgsConstructor)
     private final ProductRepository productRepository;
 
     @Override
@@ -44,7 +44,6 @@ public class ProductServiceImpl implements  ProductService{
         productDb.setDescription(product.getDescription());
         productDb.setCategory(product.getCategory());
         productDb.setPrice(product.getPrice());
-
         return productRepository.save(productDb);
     }
 

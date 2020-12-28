@@ -32,8 +32,8 @@ public class ProductRepositoryMockTest {
         productRepository.save(product01);
 
         // recupero de la base de datos
-        List<Product> founds = productRepository.findByCategory(product01.getCategory());
+        List<Product> productsFound = productRepository.findByCategory(product01.getCategory());
 
-        Assertions.assertThat(founds.size()).isEqualTo(2);
+        Assertions.assertThat(productsFound.size()).isEqualTo(2);
     }
 }

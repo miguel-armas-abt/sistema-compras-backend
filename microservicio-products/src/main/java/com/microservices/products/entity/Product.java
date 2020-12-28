@@ -17,7 +17,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor // constructor con todos los atributos
 @NoArgsConstructor  // constructor vacio
-@Builder    // construir nuevas instancias de la clase con el metodo builder()
+@Builder            // construir nuevas instancias de la clase con el metodo builder()
 public class Product {
 
     @Id

@@ -30,7 +30,7 @@ public class ProductController {
     public ResponseEntity<List<Product>> listProduct(@RequestParam(name="categoryId", required = false) Long categoryId) {
         List<Product> products = new ArrayList<>();
 
-        // si no pertenece a una categoria, devuelvo todo
+        // si no pertenece a una categoria, devuelvo la lista completa
         if(categoryId == null) {
             products = productService.listAllProduct();
             if(products.isEmpty())

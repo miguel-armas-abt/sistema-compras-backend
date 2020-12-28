@@ -19,19 +19,16 @@ import java.util.Optional;
 public class ProductServiceMockTest {
 
     @Mock
-    private ProductRepository productRepository;    // datos generados desde Mock
+    private ProductRepository productRepository;    // mockeo el repository
 
     private ProductService productService;
 
-    // en este metodo se mockean todos los datos para las pruebas unitarias
-    @BeforeEach // su ejecucion sera antes del test
+    @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this); // inicializo Mockito
 
-        // instancio un ProductServiceImpl y paso la data por constructor
-        productService = new ProductServiceImpl(productRepository);
+        productService = new ProductServiceImpl(productRepository); // instancio un service con repository mockeado
 
-        // creo una instancia de Product
         Product product = Product.builder()
                 .id(1L)
                 .name("computer")
@@ -39,12 +36,11 @@ public class ProductServiceMockTest {
                 .price(Double.parseDouble("12.5"))
                 .stock(Double.parseDouble("5")).build();
 
-        // mockeo la instancia del Product
-        // cuando busco por id=1, debe retornarme un Optional de product
+        // mockeo el metodo de interes findById
         Mockito.when(productRepository.findById(1L))
                 .thenReturn(Optional.of(product));
 
-        // cuando un producto sea modificado, debe actualizarse tambien el mock
+        // mockeo el metodo de interes save
         Mockito.when(productRepository.save(product)).thenReturn(product);
     }
 
